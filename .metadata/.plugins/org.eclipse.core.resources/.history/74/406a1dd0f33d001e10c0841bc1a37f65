@@ -1,0 +1,32 @@
+package state;
+
+import entities.ATM;
+import entities.User;
+
+public class ExitState implements ATMState{
+
+	@Override
+	public void insertCard(ATM atm, User user) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void validateCard(ATM atm, User user) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void selectOperation(ATM atm, User user) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void ejectCard(ATM atm, User user) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

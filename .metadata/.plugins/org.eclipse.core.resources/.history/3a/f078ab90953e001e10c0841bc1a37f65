@@ -1,0 +1,10 @@
+package entities;
+
+public class Move {
+
+	private Player player;
+	private int start;
+	private int end;
+	
+	
+}

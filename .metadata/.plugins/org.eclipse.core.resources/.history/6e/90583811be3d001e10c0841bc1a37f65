@@ -1,0 +1,17 @@
+package elevator;
+
+public class ElevatorControlSystem {
+    private ElevatorService elevator;
+
+    public ElevatorControlSystem(ElevatorService elevator) {
+        this.elevator = elevator;
+    }
+
+    public void requestElevator(Request request) {
+        elevator.addRequest(request);
+    }
+
+    public void runElevatorSystem() {
+        elevator.processRequests();
+    }
+}

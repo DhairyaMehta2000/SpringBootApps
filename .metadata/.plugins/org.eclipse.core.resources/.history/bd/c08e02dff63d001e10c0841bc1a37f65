@@ -1,0 +1,57 @@
+package state;
+
+import entities.ATM;
+import entities.User;
+
+public class SelectOperationState implements ATMState {
+
+	@Override
+	public void insertCard(ATM atm, User user) throws Exception {
+		atm.setCurrentState(this);
+		throw new Exception("Card already inserted");
+
+	}
+
+	@Override
+	public void enterPin(ATM atm, User user, int pin) throws Exception {
+		atm.setCurrentState(this);
+		throw new Exception("Pin already validated");
+
+	}
+
+	@Override
+	public void selectOperation(ATM atm, User user,String operation, int...arguments) throws Exception {
+		
+		switch(operation) {
+		case "WITHDRAWAL" : 
+			if(withdraw(user, arguments[0])) {
+				user.getCard().updateBalance(arguments[0]);
+				System.out.println("Withdrawing "+arguments[0]+ " current balance is "+user.getCard().getAccountBalance());
+			};
+			
+		case "DISPLAY_BALANCE" :
+			displayBalance(user);
+			
+	}
+		
+		
+}
+	public boolean withdraw(User user, int amount) {
+		if(amount>user.getCard().getAccountBalance()) {
+			return false;
+		}else {
+			return true;
+		}
+	}
+	
+	public void displayBalance(User user) {
+		System.out.println(user.getCard().getAccountBalance());
+	}
+	
+	@Override
+	public void ejectCard(ATM atm, User user) throws Exception {
+		atm.setCurrentState(new IdleState());
+		System.out.println("Card ejected from select operation state");
+
+	}
+}

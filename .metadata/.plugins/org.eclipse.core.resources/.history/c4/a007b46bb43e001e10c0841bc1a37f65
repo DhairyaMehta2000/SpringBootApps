@@ -1,0 +1,15 @@
+package main;
+
+import services.Board;
+import services.BoardService;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Board b = new BoardService(3);
+		b.initBoard();
+		b.displayBoard();
+
+	}
+
+}

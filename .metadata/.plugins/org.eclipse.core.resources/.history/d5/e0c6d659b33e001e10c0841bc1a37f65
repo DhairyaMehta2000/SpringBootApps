@@ -1,0 +1,14 @@
+package services;
+
+public interface GameLogic {
+
+	void initGame(Board board, Player player1, Player player2);
+	
+	void isThereWinner();
+	
+	void isThereDraw();
+	
+	void makeMove();
+	
+	void isValidMove();
+}

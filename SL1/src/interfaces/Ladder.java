@@ -1,0 +1,9 @@
+package interfaces;
+
+import java.util.List;
+
+public interface Ladder {
+
+	void promote(Player player);
+	List<Integer> getLadders();
+}

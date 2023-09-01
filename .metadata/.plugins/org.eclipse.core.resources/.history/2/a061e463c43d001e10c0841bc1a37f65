@@ -1,0 +1,16 @@
+package elevator;
+
+public interface Elevator {
+
+	void run();
+	
+	void processRequests();
+	
+	void processUpRequests();
+	
+	void processDownRequests();
+	
+	void addRequests();
+	
+	
+}

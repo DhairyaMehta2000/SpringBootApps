@@ -1,0 +1,32 @@
+package main;
+
+import interfaces.Database;
+import interfaces.Table;
+import services.DatabaseService;
+
+public class Main {
+	public static void main(String args[]) {
+		
+		Database employees = DatabaseService.getInstance("Employees");
+		
+		Database students  =DatabaseService.getInstance("Students");
+		
+		students.createTable("Student");
+
+		students.deleteTable("Student");
+		 students.getTables().forEach((k,v)->System.out.println(k+"|"+v));;
+		employees.createTable("Employee");
+		
+		Table employeeTable = employees.getTable("Employee");
+		
+		employeeTable.insertRow(101, "Dhairya");
+		employeeTable.insertRow(102, "Rishi");
+		employeeTable.updateRow(101, "Aka");
+		employeeTable.displayRow(102);
+		
+		employeeTable.displayRow(101);
+		
+		
+	}
+
+}

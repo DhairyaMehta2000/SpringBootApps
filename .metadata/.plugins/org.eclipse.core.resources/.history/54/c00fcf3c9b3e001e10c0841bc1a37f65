@@ -1,0 +1,17 @@
+package entities;
+
+public class Move {
+
+	private Player player;
+	private int row;
+	private int col;
+
+	public Move(Player player, int start, int end) {
+		super();
+		this.player = player;
+		this.row = start;
+		this.col = end;
+	}
+
+	
+}

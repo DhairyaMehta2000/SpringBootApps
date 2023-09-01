@@ -1,0 +1,28 @@
+package services;
+
+public class BoardService implements Board{
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	public char[][] getBoard() {
+		return board;
+	}
+
+	public void setBoard(char[][] board) {
+		this.board = board;
+	}
+
+	private int size;
+	private char[][]board;
+	
+	public BoardService(int size) {
+		this.size=size;
+		this.board = new char[size][size];
+	}
+}

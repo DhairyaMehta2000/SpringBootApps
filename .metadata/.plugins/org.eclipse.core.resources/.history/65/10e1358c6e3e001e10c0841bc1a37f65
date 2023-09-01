@@ -1,0 +1,11 @@
+package policy_factory;
+
+import eviction_policy.EvictionPolicy;
+import eviction_policy.LRUEvictionPolicy;
+
+public class PolicyFactory {
+
+	public EvictionPolicy createLRUPolicy() {
+		return new LRUEvictionPolicy(DLL dll);
+	}
+}

@@ -1,0 +1,66 @@
+package services;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import interfaces.Database;
+import interfaces.Table;
+
+public class DatabaseService implements Database{
+
+	private String name;
+	private Map<String, TableService> tables;
+	private static DatabaseService instance;
+
+	public DatabaseService(String name) {
+		this.name=name;
+		this.tables=new HashMap<>();
+	}
+
+	public static Database getInstance(String name) {
+		if(instance==null) {
+			instance = new DatabaseService(name);
+		}
+		return instance;
+	}
+
+	@Override
+	public void createTable(String name) {
+		if(!tables.containsKey(name)) {
+			Table table = new TableService(name);
+			tables.put(name, table);
+		}else {
+			System.out.println("Table already exists...");
+		}
+	}
+	
+	public void deleteTable(String name) {
+		if(tables.containsKey(name)) {
+			tables.get(name).clearRows();
+			tables.remove(name);
+		}
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Map<String, TableService> getTables() {
+		return tables;
+	}
+
+	public void setTables(Map<String, TableService> tables) {
+		this.tables = tables;
+	}
+	
+	public Table getTable(String name) {
+		return tables.get(name);
+	}
+
+
+	
+}

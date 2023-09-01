@@ -1,0 +1,54 @@
+package entities;
+
+public class Board {
+
+	private int size;
+	private char board[][];
+
+	
+	public void intiBoard() {
+		for(int i=0;i<size;i++) {
+			for(int j=0;j<size;j++) {
+				board[i][j]=' ';
+			}
+		}
+	}
+	
+	public void printBoard() {
+		for(int i=0;i<size;i++) {
+			for(int j=0;j<size;j++) {
+				
+				System.out.println(board[i][j]);
+				
+				if(j<size) {
+					System.out.print("|");
+				}
+			}
+			if(i<size) {
+				System.out.println("----------");
+			}
+		}
+	}
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
+
+	public char[][] getBoard() {
+		return board;
+	}
+
+	public void setBoard(char[][] board) {
+		this.board = board;
+	}
+
+	public Board(int size) {
+		super();
+		this.size = size;
+		this.board = new char[3][3];
+	}
+
+}

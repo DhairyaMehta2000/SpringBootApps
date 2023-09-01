@@ -1,0 +1,17 @@
+package main;
+
+import entities.ATM;
+import entities.User;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Card card = new Card();
+		User user = new User("Dhairya",card);
+		ATM atm = new ATM(1,user);
+		
+		
+
+	}
+
+}

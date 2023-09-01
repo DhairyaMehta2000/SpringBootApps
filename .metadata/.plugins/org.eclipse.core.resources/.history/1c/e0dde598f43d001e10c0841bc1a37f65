@@ -1,0 +1,43 @@
+package state;
+
+import entities.ATM;
+import entities.User;
+
+public class IdleState implements ATMState{
+
+	@Override
+	public void insertCard(ATM atm, User user) throws Exception {
+		try {
+			System.out.println("Please insert your card...");
+			System.out.println();
+			System.out.println("Card inserted...");
+			atm.setCurrentState(new HasCardState());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Override
+	public void enterPin(ATM atm, User user, int pin) throws Exception {
+		atm.setCurrentState(this);
+		throw new Exception("PLease insert card first");
+		
+	}
+
+	@Override
+	public void selectOperation(ATM atm, User user,String operation) throws Exception {
+		atm.setCurrentState(this);
+		throw new Exception("PLease insert card first");
+		
+	}
+
+	@Override
+	public void ejectCard(ATM atm, User user) throws Exception {
+		atm.setCurrentState(this);
+		throw new Exception("PLease insert card first");
+		
+	}
+
+	
+
+}

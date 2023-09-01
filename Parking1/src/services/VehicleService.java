@@ -1,0 +1,45 @@
+package services;
+
+import interfaces.Vehicle;
+
+public class VehicleService implements Vehicle{
+
+	private String color;
+	private String type;
+	private int reg_no;
+	
+	
+
+	
+	public VehicleService(String color, String type, int reg_no) {
+		super();
+		this.color = color;
+		this.type = type;
+		this.reg_no = reg_no;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public int getReg_no() {
+		return reg_no;
+	}
+
+	public void setReg_no(int reg_no) {
+		this.reg_no = reg_no;
+	}
+
+}

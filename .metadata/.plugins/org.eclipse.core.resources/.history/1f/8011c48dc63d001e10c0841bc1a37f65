@@ -1,0 +1,18 @@
+package request;
+
+import enums.Direction;
+import enums.Location;
+
+public class ExternalRequest {
+
+	int currentFloor;
+	Direction direction;
+	Location location;
+	public ExternalRequest(Direction direction, Location location, int... arguments) {
+		this.currentFloor = arguments[0];
+		this.direction = direction;
+		this.location = location;
+	}
+	
+	
+}

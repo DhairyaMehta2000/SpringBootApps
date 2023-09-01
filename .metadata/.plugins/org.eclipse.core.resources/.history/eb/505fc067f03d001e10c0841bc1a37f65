@@ -1,0 +1,18 @@
+package entities;
+
+public class Card {
+
+	private int cardNumber;
+	private String holderName;
+	private String expiryDate;
+	private int accountBalance;
+	public Card(int cardNumber, String holderName, String expiryDate, int accountBalance) {
+		super();
+		this.cardNumber = cardNumber;
+		this.holderName = holderName;
+		this.expiryDate = expiryDate;
+		this.accountBalance = accountBalance;
+	}
+	
+	
+}

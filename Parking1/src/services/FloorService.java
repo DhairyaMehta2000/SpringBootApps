@@ -1,0 +1,35 @@
+package services;
+
+import java.util.List;
+
+import interfaces.Floor;
+import interfaces.Slot;
+
+public class FloorService implements Floor{
+
+	private List<Slot> slots;
+	private int floorNumber;
+
+	public List<Slot> getSlots() {
+		return slots;
+	}
+
+	public void setSlots(List<Slot> slots) {
+		this.slots = slots;
+	}
+
+	public int getFloorNumber() {
+		return floorNumber;
+	}
+
+	public void setFloorNumber(int floorNumber) {
+		this.floorNumber = floorNumber;
+	}
+
+	public FloorService(List<Slot> slots, int floorNumber) {
+		super();
+		this.slots = slots;
+		this.floorNumber = floorNumber;
+	}
+
+}

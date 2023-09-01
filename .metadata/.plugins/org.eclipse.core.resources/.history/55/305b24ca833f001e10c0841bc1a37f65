@@ -1,0 +1,7 @@
+package interfaces;
+
+public interface Row {
+	Integer getId();
+	void setId(Integer id);
+	
+}

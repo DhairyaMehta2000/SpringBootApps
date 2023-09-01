@@ -1,0 +1,8 @@
+package elevator;
+
+import service.Request;
+
+public interface ElevatorService {
+	 void addRequest(Request request);
+	    void processRequests();
+}

@@ -1,0 +1,10 @@
+package entities;
+
+public class ATM {
+	
+	private int id;
+	
+	public ATM(int id) {
+		this.id=id;
+	}
+}

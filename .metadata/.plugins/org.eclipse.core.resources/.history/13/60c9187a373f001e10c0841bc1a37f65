@@ -1,0 +1,31 @@
+package services;
+
+import java.util.Scanner;
+
+import interfaces.Board;
+import interfaces.GameLogic;
+import interfaces.Ladder;
+import interfaces.Player;
+import interfaces.Snake;
+
+public class GameService implements GameLogic{
+
+	public GameService(Board board, Player player1, Player player2, Ladder ladder, Snake snake) {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void init() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void play() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
+}

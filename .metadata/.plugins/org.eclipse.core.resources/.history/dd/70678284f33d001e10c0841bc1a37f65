@@ -1,0 +1,50 @@
+package state;
+
+import entities.ATM;
+import entities.User;
+
+public class HasCardState implements ATMState{
+
+	@Override
+	public void insertCard(ATM atm, User user) throws Exception {
+		atm.setCurrentState(new HasCardState());
+		throw new Exception("Card already inserted");
+		
+	}
+	
+	@Override
+	public void enterPin(ATM atm, User user, int pin) throws Exception {
+		if(validatePin(user,pin)) {
+			System.out.println("Card validated");
+			atm.setCurrentState(new SelectOperationState());
+		}else {
+			atm.setCurrentState(this);
+			throw new Exception("Wrong pin entered... Try again");
+			
+		}
+	}
+
+	public boolean validatePin(User user,int pin) {
+		if(user.getCard().getPin()==pin){
+			return true;
+		}else {
+			return false;
+		}
+	}
+
+	@Override
+	public void selectOperation(ATM atm, User user) throws Exception {
+		atm.setCurrentState(this);
+		throw new Exception("Enter pin");
+		
+	}
+
+	@Override
+	public void ejectCard(ATM atm, User user) throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+}

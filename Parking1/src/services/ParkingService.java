@@ -1,0 +1,59 @@
+package services;
+
+import java.util.List;
+
+import interfaces.Floor;
+import interfaces.Parking;
+import interfaces.Slot;
+
+public class ParkingService implements Parking {
+
+	private List<Floor> floors;
+	private int id;
+
+	public ParkingService(List<Floor> floors, int id) {
+		super();
+		this.floors = floors;
+		this.id = id;
+	}
+
+	public void park( String type, String color, int reg_no) {
+		for(Floor floor:floors) {
+			for(Slot slot:floor.getSlots()) {
+				if(slot.getVehicleType().getType() ==type&& slot.isBooked()==false) {
+					slot.setBooked(true);
+					slot.setReg_no(reg_no);
+					return;
+				}
+			}
+		}
+	}
+	
+	public void unpark(int reg_no) {
+		for(Floor floor:floors) {
+			for(Slot slot :floor.getSlots()) {
+				if(slot.getReg_no()==reg_no && slot.isBooked()==true) {
+					slot.setBooked(false);
+					slot.setReg_no(0);
+				}
+			}
+		}
+	}
+	
+	public List<Floor> getFloors() {
+		return floors;
+	}
+
+	public void setFloors(List<Floor> floors) {
+		this.floors = floors;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+}

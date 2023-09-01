@@ -1,0 +1,22 @@
+package elevator;
+
+import request.InternalRequest;
+import request.Request;
+
+public interface Elevator {
+
+	void run();
+	
+	void processUpRequests();
+	
+	void processDownRequests();
+	
+	void addRequests();
+	
+	void sendUpRequest(Request request);
+	
+	void sendDownRequest(Request request);
+
+	int getCurrentFloor();
+	
+}

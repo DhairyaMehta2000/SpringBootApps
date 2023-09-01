@@ -1,0 +1,18 @@
+package services;
+
+import interfaces.Parking;
+
+public class ParkingControlSystem {
+
+	private Parking parkingLot;
+
+	public Parking getParkingLot() {
+		return parkingLot;
+	}
+
+	public void setParkingLot(Parking parkingLot) {
+		this.parkingLot = parkingLot;
+	}
+	
+	
+}

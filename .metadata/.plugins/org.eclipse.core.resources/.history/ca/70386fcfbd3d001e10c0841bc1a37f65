@@ -1,0 +1,6 @@
+package elevator;
+
+public interface ElevatorService {
+	 void addRequest(Request request);
+	    void processRequests();
+}

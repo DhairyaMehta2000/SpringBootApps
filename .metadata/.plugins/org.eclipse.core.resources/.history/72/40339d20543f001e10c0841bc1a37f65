@@ -1,0 +1,13 @@
+package services;
+
+import interfaces.Vehicle;
+
+public class SlotService {
+
+	private String vehicleType;
+	private boolean isBooked;
+	
+	private int number;
+	
+	
+}

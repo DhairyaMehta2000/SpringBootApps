@@ -1,0 +1,7 @@
+package interfaces;
+
+public interface Slot {
+	String getVehicleType();
+	void setVehicleType(String vehicleType);
+	boolean isBooked();
+}

@@ -1,0 +1,13 @@
+package interfaces;
+
+public interface Move {
+	Player getPlayer();
+	void setPlayer(Player player);
+	int getStart();
+	
+	
+	
+	
+	
+	
+}

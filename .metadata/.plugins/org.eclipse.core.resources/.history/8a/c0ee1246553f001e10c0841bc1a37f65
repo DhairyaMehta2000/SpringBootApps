@@ -1,0 +1,10 @@
+package interfaces;
+
+public interface Vehicle {
+
+	String getColor();
+	void setType(String type);
+	void setColor(String color);
+	String getType();
+	
+}

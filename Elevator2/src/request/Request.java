@@ -1,0 +1,15 @@
+package request;
+
+import enums.Direction;
+import enums.Location;
+
+public interface Request {
+	int getCurrentFloor();
+	
+	Location getLocation();
+	
+	Direction getDirection();
+	
+	int getDestinationFloor();
+	
+}

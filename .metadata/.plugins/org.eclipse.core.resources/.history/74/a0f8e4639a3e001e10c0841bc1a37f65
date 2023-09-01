@@ -1,0 +1,44 @@
+package game;
+
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+import entities.Board;
+import entities.Move;
+import entities.Piece;
+import entities.Player;
+
+public class Game {
+
+	private Board board;
+	private Move move;
+	private Deque<Player> players;
+
+	public Game(Board board, Player player1, Player player2) {
+		super();
+		this.board = board;
+		this.players = new LinkedList<>();
+		players.add(player1);
+		players.add(player2);
+	}
+	
+	public void initGame() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter board size, eg. 3x3 ");
+		int size = sc.nextInt();
+		Board board = new Board(size);
+		System.out.println("Enter Player 1 name - ");
+		String name1 = sc.next();
+		
+		Piece piece1 = Piece.X;
+		Player player1 = new Player(name1, piece1);
+		System.out.println("Enter Player 2 name - ");
+		String name2 = sc.next();
+		Piece piece2 = Piece.O;
+		Player player2 = new Player(name2,piece2);
+	}
+	
+	
+	
+}

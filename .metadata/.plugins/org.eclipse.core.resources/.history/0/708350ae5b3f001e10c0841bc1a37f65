@@ -1,0 +1,52 @@
+package services;
+
+import interfaces.Slot;
+
+public class SlotService implements Slot{
+
+	private String vehicleType;
+	private boolean isBooked;
+	private int reg_no;
+
+	public int getReg_no() {
+		return reg_no;
+	}
+
+	public void setReg_no(int reg_no) {
+		this.reg_no = reg_no;
+	}
+
+	public SlotService(String vehicleType, int number) {
+		super();
+		this.vehicleType = vehicleType;
+		this.number = number;
+		this.isBooked=false;
+	}
+
+	public String getVehicleType() {
+		return vehicleType;
+	}
+
+	public void setVehicleType(String vehicleType) {
+		this.vehicleType = vehicleType;
+	}
+
+	public boolean isBooked() {
+		return isBooked;
+	}
+
+	public void setBooked(boolean isBooked) {
+		this.isBooked = isBooked;
+	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+
+	private int number;
+
+}

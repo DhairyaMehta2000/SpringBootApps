@@ -1,0 +1,7 @@
+package request;
+
+public interface Request {
+	int getCurrPos();
+	
+	
+}

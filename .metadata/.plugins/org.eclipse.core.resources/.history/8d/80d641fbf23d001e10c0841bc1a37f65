@@ -1,0 +1,18 @@
+package main;
+
+import entities.ATM;
+import entities.Card;
+import entities.User;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Card card = new Card(112233,"Dhairya Mehta","12-12-2024",3000);
+		User user = new User("Dhairya",card);
+		ATM atm = new ATM(1,user,5000);
+		
+		
+
+	}
+
+}

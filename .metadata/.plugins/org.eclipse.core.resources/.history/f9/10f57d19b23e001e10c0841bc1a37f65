@@ -1,0 +1,12 @@
+package services;
+
+public class BoardService {
+
+	private int size;
+	private char[][]board;
+	
+	public BoardService(int size) {
+		this.size=size;
+		this.board = new char[size][size];
+	}
+}

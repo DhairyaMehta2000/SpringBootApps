@@ -1,0 +1,8 @@
+package interfaces;
+
+public interface GameLogic {
+
+	void init();
+	
+	void play();
+}

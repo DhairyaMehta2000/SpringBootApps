@@ -1,0 +1,15 @@
+package interfaces;
+
+import java.util.Map;
+
+import services.RowService;
+
+public interface Table {
+	String getName();
+
+	void setName(String name);
+
+	Map<Integer, RowService> getRows();
+
+	void setRows(Map<String, RowService> rows);
+}

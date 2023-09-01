@@ -1,0 +1,21 @@
+package services;
+
+import java.util.List;
+
+import interfaces.Player;
+import interfaces.Snake;
+
+public class SnakeService implements Snake{
+
+	private List<Integer>snakes;
+	private Player player;
+	public SnakeService() {
+		
+	}
+	@Override
+	public void demote() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

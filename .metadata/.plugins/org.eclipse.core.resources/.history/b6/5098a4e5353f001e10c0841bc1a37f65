@@ -1,0 +1,13 @@
+package services;
+
+import interfaces.Ladder;
+
+public class LadderService implements Ladder{
+
+	@Override
+	public void promote() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

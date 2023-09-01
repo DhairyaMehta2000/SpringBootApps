@@ -1,0 +1,14 @@
+package services;
+
+public interface Board {
+
+	void initBoard();
+	
+	void displayBoard();
+	
+	void setBoard(String[][] board);
+	
+	String[][] getBoard();
+	
+	int getSize();
+}

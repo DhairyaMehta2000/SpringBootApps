@@ -1,0 +1,10 @@
+package entities;
+
+public class Card {
+
+	private int cardNumber;
+	private String holderName;
+	private String expiryDate;
+	private int accountBalance;
+	
+}

@@ -1,0 +1,43 @@
+package services;
+
+import java.util.Deque;
+import java.util.LinkedList;
+
+public class GameService implements GameLogic{
+
+	Deque<Player> players;
+	public GameService(Player player1,Player player2) {
+		this.players=new LinkedList<>();
+		players.add(player1);
+		players.add(player2);
+	}
+	@Override
+	public void initGame(Board board, Player player1, Player player2) {
+		board.initBoard();
+	}
+
+	@Override
+	public void isThereWinner(Move move, Player currentPlayer, int row, int col) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void isThereDraw() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void makeMove(Move move, Player player, int row, int col) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void isValidMove(int row, int col) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,14 @@
+package services;
+
+public class MoveService {
+
+	private int row;
+	private int col;
+	private Player player;
+	
+	MoveService(Player currentPlayer, int row, int col){
+		this.player=currentPlayer;
+		this.row=row;
+		this.col=col;
+	}
+}

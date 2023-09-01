@@ -1,0 +1,43 @@
+package services;
+
+import java.util.Map;
+
+import interfaces.Row;
+
+public class RowService implements Row {
+
+	private Integer id;
+	private Map<Integer,String>column;
+	private String name;
+
+	public RowService(Integer id,Map<Integer,String>column) {
+		super();
+		this.id = id;
+		this.column=column;
+	}
+
+	public Map<Integer, String> getColumn() {
+		return column;
+	}
+
+	public void setColumn(Map<Integer, String> column) {
+		this.column = column;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+}

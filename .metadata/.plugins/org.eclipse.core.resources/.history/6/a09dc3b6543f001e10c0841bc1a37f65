@@ -1,0 +1,12 @@
+package services;
+
+import java.util.List;
+
+import interfaces.Floor;
+
+public class ParkingService {
+
+	private List<Floor> floors;
+	private int id;
+	
+}

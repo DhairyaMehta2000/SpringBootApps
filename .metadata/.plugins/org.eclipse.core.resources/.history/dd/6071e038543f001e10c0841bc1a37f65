@@ -1,0 +1,42 @@
+package services;
+
+import interfaces.Vehicle;
+
+public class SlotService {
+
+	private String vehicleType;
+	private boolean isBooked;
+
+	public SlotService(String vehicleType, int number) {
+		super();
+		this.vehicleType = vehicleType;
+		this.number = number;
+	}
+
+	public String getVehicleType() {
+		return vehicleType;
+	}
+
+	public void setVehicleType(String vehicleType) {
+		this.vehicleType = vehicleType;
+	}
+
+	public boolean isBooked() {
+		return isBooked;
+	}
+
+	public void setBooked(boolean isBooked) {
+		this.isBooked = isBooked;
+	}
+
+	public int getNumber() {
+		return number;
+	}
+
+	public void setNumber(int number) {
+		this.number = number;
+	}
+
+	private int number;
+
+}

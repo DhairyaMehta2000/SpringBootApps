@@ -1,0 +1,7 @@
+package services;
+
+import interfaces.Board;
+
+public class BoardService implements Board {
+
+}

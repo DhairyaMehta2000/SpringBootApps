@@ -1,0 +1,18 @@
+package services;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import interfaces.Table;
+
+public class TableService implements Table{
+
+	private String name;
+	private Map<String, RowService> rows;
+	
+	public TableService(String name) {
+		this.name=name;
+		this.rows=new HashMap<>();
+	}
+
+}

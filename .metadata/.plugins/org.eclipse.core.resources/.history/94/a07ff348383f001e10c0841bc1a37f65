@@ -1,0 +1,40 @@
+package services;
+
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+import interfaces.Board;
+import interfaces.GameLogic;
+import interfaces.Ladder;
+import interfaces.Player;
+import interfaces.Snake;
+
+public class GameService implements GameLogic {
+
+	private Board board;
+	private Ladder ladder;
+	private Snake snake;
+	private Deque<Player> players;
+
+	public GameService(Board board, Player player1, Player player2, Ladder ladder, Snake snake) {
+		this.board = board;
+		this.ladder = ladder;
+		this.snake = snake;
+		this.players = new LinkedList<>();
+		players.add(player1);
+		players.add(player2);
+	}
+
+	@Override
+	public void init() {
+		System.out.println(board.getBoard());
+	}
+
+	@Override
+	public void play() {
+		Scanner sc = new Scanner(System.in);
+
+	}
+
+}

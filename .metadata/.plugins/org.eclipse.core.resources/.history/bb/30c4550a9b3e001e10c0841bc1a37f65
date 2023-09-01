@@ -1,0 +1,49 @@
+package game;
+
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+import entities.Board;
+import entities.Move;
+import entities.Piece;
+import entities.Player;
+
+public class Game {
+
+	private Board board;
+	private Move move;
+	private Deque<Player> players;
+
+	public Game(Board board, Player player1, Player player2) {
+		super();
+		this.board = board;
+		this.players = new LinkedList<>();
+		players.add(player1);
+		players.add(player2);
+	}
+	
+	public void initGame() {
+		board.intiBoard();
+		System.out.println("Cuurent board status : ");
+		board.printBoard();
+	}
+	
+	public void play() {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		while(true) {
+			Player currentPlayer = players.poll();
+			System.out.println("It is "+currentPlayer.getName()+"'s turn");
+			System.out.println("Enter the row you want to play in ");
+			int row = sc.nextInt();
+			System.out.println("Enter the col you want to play in ");
+			int col = sc.nextInt();
+			Move newMove = new Move(currentPlayer, 0, 0);
+		}
+	}
+	
+	
+	
+}

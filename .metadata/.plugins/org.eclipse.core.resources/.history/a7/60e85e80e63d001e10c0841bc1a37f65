@@ -1,0 +1,23 @@
+package elevator;
+
+import request.Request;
+import java.util.*;
+public class ElevatorControlSystem {
+	private Elevator elevator;
+	private PriorityQueue<Request>upQueue;
+	private PriorityQueue<Request> downQueue;
+	
+	
+	public ElevatorControlSystem(Elevator elevator) {
+		this.elevator = elevator;
+	}
+	
+	public void addRequests() {
+		elevator.addRequests();
+		
+	}
+	
+	public void run() {
+		elevator.run();
+	}
+}

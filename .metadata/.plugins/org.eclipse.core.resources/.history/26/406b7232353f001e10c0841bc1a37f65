@@ -1,0 +1,11 @@
+package services;
+
+public class DiceService {
+
+	private int max=6;
+	private int min=1;
+	
+	public int rollDice() {
+		return ((int)(Math.random()*max)+min);
+	}
+}

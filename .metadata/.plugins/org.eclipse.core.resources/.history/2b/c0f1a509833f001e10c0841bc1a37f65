@@ -1,0 +1,23 @@
+package services;
+
+import java.util.Map;
+
+import interfaces.Database;
+
+public class DatabaseService {
+
+	private String name;
+	private Map<String, TableService> tables;
+	private static DatabaseService instance;
+
+	public DatabaseService(String name2) {
+		// TODO Auto-generated constructor stub
+	}
+
+	public static Database getInstance(String name) {
+		if(instance==null) {
+			instance = new DatabaseService(name);
+		}
+	}
+
+}

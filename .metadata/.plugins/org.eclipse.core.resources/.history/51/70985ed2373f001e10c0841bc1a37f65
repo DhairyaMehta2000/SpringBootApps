@@ -1,0 +1,8 @@
+package interfaces;
+
+public interface Board {
+
+	int[] getBoard();
+	
+	void setBoard(int[] board)
+}

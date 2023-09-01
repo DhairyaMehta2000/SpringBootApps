@@ -1,0 +1,16 @@
+package services;
+
+import interfaces.Row;
+
+public class RowService implements Row{
+
+	private Integer id;
+	private String name;
+	public RowService(Integer id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+	
+	
+}

@@ -1,0 +1,56 @@
+package elevator;
+
+import java.util.PriorityQueue;
+
+import enums.Direction;
+import enums.Location;
+import service.Request;
+
+public class Elevator implements ElevatorService {
+    private int currentFloor;
+    private Direction direction;
+    private PriorityQueue<Request> upQueue;
+    private PriorityQueue<Request> downQueue;
+    
+    public Elevator(int currentFloor) {
+    	upQueue=new PriorityQueue<>((a,b)->a.destination-b.destination);
+    	downQueue = new PriorityQueue<>((a,b)->b.destination-a.destination);
+    	this.direction=direction.IDLE;
+    	this.currentFloor=currentFloor;
+    }
+	@Override
+	public void addUpRequest(Request request) {
+		// TODO Auto-generated method stub
+		if(request.location==Location.OUTSIDE && this.currentFloor!=request.currentPos) {
+			upQueue.offer(new Request(this.currentFloor,request.currentPos,direction.UP,Location.OUTSIDE));
+		}else if(request.location==Location.INSIDE) {
+			upQueue.offer(request);
+		}
+		
+	}
+	@Override
+	public void addDownRequest(Request request) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void processUpRequests() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void processDownRequests() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void processRequests() {
+		while(!upQueue.isEmpty() && !downQueue.isEmpty() ) {
+			processUpRequests();
+			processDownRequests();
+		}
+		
+	}
+
+    
+}

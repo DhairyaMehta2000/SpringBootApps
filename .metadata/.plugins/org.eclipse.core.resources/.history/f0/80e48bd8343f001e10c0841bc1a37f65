@@ -1,0 +1,21 @@
+package services;
+
+public class PlayerService {
+
+	private String name;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public PlayerService(String name) {
+		super();
+		this.name = name;
+	}
+	
+	
+}

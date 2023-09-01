@@ -1,0 +1,78 @@
+package game;
+
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+import entities.Board;
+import entities.Move;
+import entities.Piece;
+import entities.Player;
+
+public class Game {
+
+	private Board board;
+	private Move move;
+	private Deque<Player> players;
+
+	public Game(Board board, Player player1, Player player2) {
+		super();
+		this.board = board;
+		this.players = new LinkedList<>();
+		players.add(player1);
+		players.add(player2);
+	}
+
+	public void initGame() {
+		board.intiBoard();
+		System.out.println("Cuurent board status : ");
+		board.printBoard();
+	}
+
+	public boolean validMove(Move newMove, int row, int col,Player currentPlayer) {
+		if(row>0 && col>0 && board.getBoard()[row][col]==' ') {
+			char[][]move = new char[row][col];
+			move[row][col] = currentPlayer.getPiece();
+			board.setBoard(move);
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+
+	public void play() {
+
+		Scanner sc = new Scanner(System.in);
+
+		while (true) {
+			Player currentPlayer = players.poll();
+			System.out.println("It is " + currentPlayer.getName() + "'s turn"); 
+			
+			System.out.println("Enter the row you want to play in ");
+			int row = sc.nextInt();
+			
+			System.out.println("Enter the col you want to play in ");
+			int col = sc.nextInt();
+			
+			Move newMove = new Move(currentPlayer, row, col);
+			
+			if (validMove(newMove, row, col)) {
+				if (isThereWinner(newMove,row,col,currentPlayer)) {
+					System.out.println("Winner is " + currentPlayer.getName());
+				}else {
+					isThereDraw(newMove,row,col){
+						System.out.println("Its a draw");
+					}
+				}
+			} else {
+				System.out.println("Invalid move try again");
+				players.offerFirst(currentPlayer);
+			}
+			
+			
+			
+		}
+	}
+
+}

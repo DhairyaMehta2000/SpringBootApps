@@ -1,0 +1,11 @@
+package entities;
+
+public class ATM {
+	
+	private int id;
+	private User user;
+	public ATM(int id, User user) {
+		this.id=id;
+		this.user=user;
+	}
+}

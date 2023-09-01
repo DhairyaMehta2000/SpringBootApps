@@ -1,0 +1,84 @@
+package services;
+
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class GameService implements GameLogic{
+
+	Deque<Player> players;
+	Board board;
+	public GameService(Player player1,Player player2, Board board) {
+		this.players=new LinkedList<>();
+		players.add(player1);
+		players.add(player2);
+		this.board=board;
+	}
+	@Override
+	public void initGame(Board board, Player player1, Player player2) {
+		board.initBoard();
+	}
+
+	@Override
+	public boolean isThereWinner(Move move, Player currentPlayer, int row, int col) {
+		if()
+		
+	}
+
+	@Override
+	public boolean isThereDraw() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean makeMove(Move move, Player player, int row, int col) {
+		if(isValidMove(row,col)) {
+			board.getBoard()[row][col]=player.getSymbol();
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+
+	@Override
+	public boolean isValidMove(int row, int col) {
+		if(row>=0 && col>=0 && row<board.getSize() && col<board.getSize() && board.getBoard()[row][col]==" ") {
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+	@Override
+	public void play() {
+		Scanner sc = new Scanner(System.in);
+		while(true) {
+			board.displayBoard();
+			Player currentPlayer = players.poll();
+			System.out.println("Current player is "+currentPlayer.getName());
+			System.out.println("Enter the row you want to play in ");
+			int row = sc.nextInt();
+			System.out.println("Enter the column you want to play in ");
+			int col = sc.nextInt();
+			
+			Move move = new MoveService(currentPlayer, row, col);
+			if(makeMove(move,currentPlayer,row,col)){
+				if(isThereWinner(move, currentPlayer,row,col)) {
+					System.out.println("Winner is "+currentPlayer.getName());
+					break;
+				}else if(isThereDraw()) {
+					System.out.println("Its a draw");
+				}
+			}else {
+				System.out.println("Invalid Move... please try again ");
+				players.offerFirst(currentPlayer);
+			}
+			players.offer(currentPlayer);
+			
+		}
+		
+	}
+
+}

@@ -1,0 +1,10 @@
+package services;
+
+import interfaces.Move;
+
+public class MoveService implements Move{
+
+	private Player player;
+	private int start;
+	private int end;
+}

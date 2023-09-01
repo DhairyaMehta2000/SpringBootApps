@@ -1,0 +1,48 @@
+package services;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import interfaces.Row;
+import interfaces.Table;
+
+public class TableService implements Table{
+
+	private String name;
+	private Map<Integer, RowService> rows;
+	
+	public TableService(String name) {
+		this.name=name;
+		this.rows=new HashMap<>();
+	}
+
+	
+	public void insertRow(Integer id, String name) {
+		if(!rows.containsKey(id)) {
+			RowService row = new RowService(id,name);
+			rows.put(id, row);
+		}
+	}
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Map<Integer, RowService> getRows() {
+		return rows;
+	}
+
+	public void setRows(Map<Integer, RowService> rows) {
+		this.rows = rows;
+	}
+
+	public TableService(String name, Map<Integer, RowService> rows) {
+		super();
+		this.name = name;
+		this.rows = rows;
+	}
+
+}

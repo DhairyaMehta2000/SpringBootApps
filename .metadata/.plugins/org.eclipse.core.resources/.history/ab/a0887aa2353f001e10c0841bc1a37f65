@@ -1,0 +1,13 @@
+package services;
+
+import interfaces.Snake;
+
+public class SnakeService implements Snake{
+
+	@Override
+	public void demote() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

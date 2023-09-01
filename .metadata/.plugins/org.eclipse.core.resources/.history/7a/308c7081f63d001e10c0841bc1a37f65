@@ -1,0 +1,60 @@
+package entities;
+
+import state.ATMState;
+import state.IdleState;
+
+public class ATM {
+
+	private int id;
+	private User user;
+	private ATMState currentState;
+	private int balance;
+
+	public ATMState getCurrentState() {
+		return currentState;
+	}
+
+	public void setCurrentState(ATMState currentState) {
+		this.currentState = currentState;
+		
+	}
+
+	public ATM(int id, User user, int balance) {
+		this.id = id;
+		this.user = user;
+		this.balance=balance;
+		this.currentState = new IdleState();
+	}
+
+	public int getBalance() {
+		return balance;
+	}
+
+	public void setBalance(int balance) {
+		this.balance = balance;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	public void insertCard(User user) throws Exception {
+		currentState.insertCard(this, user);
+	}
+	
+	public void enterPin(User user, int pin) throws Exception {
+		currentState.enterPin(this, user, pin);
+	}
+}

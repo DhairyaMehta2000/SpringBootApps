@@ -1,0 +1,13 @@
+package services;
+
+import java.util.List;
+
+import interfaces.Slot;
+
+public class FloorService {
+
+	private List<Slot> slots;
+	private int floorNumber;
+	
+}
+

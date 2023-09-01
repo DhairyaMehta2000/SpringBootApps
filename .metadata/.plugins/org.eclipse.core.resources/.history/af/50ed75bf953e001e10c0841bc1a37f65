@@ -1,0 +1,16 @@
+package game;
+
+import java.util.Deque;
+
+import entities.Board;
+import entities.Move;
+import entities.Player;
+
+public class Game {
+
+	private Board board;
+	private Move move;
+	private Deque<Player> players;
+	
+	
+}

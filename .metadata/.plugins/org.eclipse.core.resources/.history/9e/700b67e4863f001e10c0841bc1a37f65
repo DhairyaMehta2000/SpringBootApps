@@ -1,0 +1,23 @@
+package main;
+
+import interfaces.Database;
+import interfaces.Table;
+import services.DatabaseService;
+
+public class Main {
+	public static void main(String args[]) {
+		
+		Database employees = DatabaseService.getInstance("Employees");
+		
+		employees.createTable("Employee");
+		
+		Table employeeTable = employees.getTable("EmployeeS");
+		
+//		System.out.println(employees.getTables());
+		
+//		System.out.println(employeeTable.getName());
+		
+		
+	}
+
+}

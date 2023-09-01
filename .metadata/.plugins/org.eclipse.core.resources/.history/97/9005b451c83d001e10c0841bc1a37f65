@@ -1,0 +1,10 @@
+package request;
+
+public interface Request {
+	int getCurrentFloor();
+	
+	Location getLocation();
+	
+	Direction getDirection();
+	
+}

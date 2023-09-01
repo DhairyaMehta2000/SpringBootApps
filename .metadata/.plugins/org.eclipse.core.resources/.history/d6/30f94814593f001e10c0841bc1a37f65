@@ -1,0 +1,50 @@
+package main;
+
+import java.util.List;
+
+import interfaces.Floor;
+import interfaces.Parking;
+import interfaces.Slot;
+import services.FloorService;
+import services.ParkingControlSystem;
+import services.ParkingService;
+import services.SlotService;
+
+public class Main {
+
+	public static void main(String[] args) {
+	
+		Slot slot1 = new SlotService("Truck", 1);
+		Slot slot2 = new SlotService("Bike", 2);
+		Slot slot3 = new SlotService("Bike", 3);
+		Slot slot4 = new SlotService("Car", 4);
+		Slot slot5 = new SlotService("Car", 5);
+		Slot slot6 = new SlotService("Car", 6);
+		
+		Slot slot7 = new SlotService("Truck", 7);
+		Slot slot8 = new SlotService("Bike", 8);
+		Slot slot9 = new SlotService("Bike", 9);
+		Slot slot10 = new SlotService("Car",10);
+		Slot slot11 = new SlotService("Car", 11);
+		Slot slot12 = new SlotService("Car", 12);
+		
+		System.out.println(slot10.getVehicleType()+"|"+slot10.getNumber());
+		
+		Floor floor1 = new FloorService(List.of(slot1,slot2,slot3,slot4,slot5,slot6),1);
+		Floor floor2 = new FloorService(List.of(slot7,slot8,slot9,slot10,slot11,slot12),2);
+		
+		Parking parkingLot1 = new ParkingService(List.of(floor1,floor2), 1);
+		
+		ParkingControlSystem parker = new ParkingControlSystem(parkingLot1);
+		
+		parker.park("Truck", "Black", 123456);
+		
+		System.out.println(slot1.isBooked());
+		System.out.println(slot7.isBooked());
+		
+		
+		
+
+	}
+
+}

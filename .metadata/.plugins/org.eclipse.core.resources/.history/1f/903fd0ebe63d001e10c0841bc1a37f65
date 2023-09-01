@@ -1,0 +1,49 @@
+package elevator;
+
+import request.Request;
+import java.util.*;
+public class ElevatorControlSystem {
+	private Elevator elevator;
+	private PriorityQueue<Request>upQueue;
+	private PriorityQueue<Request> downQueue;
+	
+	
+	public ElevatorControlSystem(Elevator elevator) {
+		this.elevator = elevator;
+		this.upQueue = new PriorityQueue<>((a,b)->a.getDestinationFloor()-b.getDestinationFloor());
+		this.downQueue = new PriorityQueue<>((a,b)->b.getDestinationFloor()-a.getDestinationFloor());
+	}
+	
+	public Elevator getElevator() {
+		return elevator;
+	}
+
+	public void setElevator(Elevator elevator) {
+		this.elevator = elevator;
+	}
+
+	public PriorityQueue<Request> getUpQueue() {
+		return upQueue;
+	}
+
+	public void setUpQueue(PriorityQueue<Request> upQueue) {
+		this.upQueue = upQueue;
+	}
+
+	public PriorityQueue<Request> getDownQueue() {
+		return downQueue;
+	}
+
+	public void setDownQueue(PriorityQueue<Request> downQueue) {
+		this.downQueue = downQueue;
+	}
+
+	public void addRequests() {
+		elevator.addRequests();
+		
+	}
+	
+	public void run() {
+		elevator.run();
+	}
+}

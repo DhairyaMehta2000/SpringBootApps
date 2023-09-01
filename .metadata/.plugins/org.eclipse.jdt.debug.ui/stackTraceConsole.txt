@@ -1,0 +1,35 @@
+public class Main {
+    public static void main(String[] args) {
+        // Define cache capacity
+        int capacity = 3;
+
+        // Instantiate the eviction policy
+        EvictionPolicy<Integer> evictionPolicy = new LRUEvictionPolicy<>();
+
+        // Instantiate the storage mechanism
+        Storage<Integer, String> storage = new HashMapBasedStorage<>(capacity);
+
+        // Instantiate the cache
+        Cache<Integer, String> cache = new Cache<>(evictionPolicy, storage);
+
+        // Use the cache
+        cache.put(1, "Value 1");
+        cache.put(2, "Value 2");
+        cache.put(3, "Value 3");
+
+        // Retrieve values from the cache
+        System.out.println(cache.get(2)); // Output: Value 2
+        System.out.println(cache.get(1)); // Output: Value 1
+
+        // Adding a new value which should evict the least recently used entry
+        cache.put(4, "Value 4");
+
+        // Trying to retrieve an evicted value
+        System.out.println(cache.get(3)); // Output: null
+
+        // Retrieve values after eviction
+        System.out.println(cache.get(1)); // Output: Value 1
+        System.out.println(cache.get(2)); // Output: Value 2
+        System.out.println(cache.get(4)); // Output: Value 4
+    }
+}

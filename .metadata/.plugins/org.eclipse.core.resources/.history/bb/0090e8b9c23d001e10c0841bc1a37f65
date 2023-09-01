@@ -1,0 +1,14 @@
+package request;
+
+import enums.Direction;
+import enums.Location;
+
+public class InternalRequest implements Request{
+
+	public int currentFloor;
+	public int destinationFloor;
+	Direction direction;
+	Location location;
+	
+	
+}

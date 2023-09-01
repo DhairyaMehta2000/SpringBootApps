@@ -1,0 +1,24 @@
+package services;
+
+import interfaces.Player;
+
+public class PlayerService implements Player{
+
+	private String name;
+	private int position;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public PlayerService(String name) {
+		super();
+		this.name = name;
+	}
+	
+	
+}

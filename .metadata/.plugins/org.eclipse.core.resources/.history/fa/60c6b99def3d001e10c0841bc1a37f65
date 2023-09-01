@@ -1,0 +1,15 @@
+package main;
+
+import entities.ATM;
+
+public class Main {
+
+	public static void main(String[] args) {
+		User user = new User();
+		ATM atm = new ATM(1,user);
+		
+		
+
+	}
+
+}

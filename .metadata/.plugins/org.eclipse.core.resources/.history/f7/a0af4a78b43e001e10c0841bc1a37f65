@@ -1,0 +1,30 @@
+package main;
+
+import java.util.Scanner;
+
+import services.Board;
+import services.BoardService;
+import services.Player;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+        System.out.println("Enter board size, e.g., 3x3 ");
+        int size = sc.nextInt();
+
+        Board board = new BoardService(size);
+
+        System.out.println("Enter Player 1 name - ");
+        String name1 = sc.nextLine();
+        System.out.println("Enter Player 1 symbol - ");
+        char symbol1 = sc.next();
+        Player player1 = new PlayerService(name1, 'X');
+
+        System.out.println("Enter Player 2 name - ");
+        String name2 = sc.next();
+        Player player2 = new PlayerImpl(name2, 'O');
+
+	}
+
+}

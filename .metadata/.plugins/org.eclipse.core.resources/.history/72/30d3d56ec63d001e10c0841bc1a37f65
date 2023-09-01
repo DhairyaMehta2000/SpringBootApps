@@ -1,0 +1,19 @@
+package elevator;
+
+import request.InternalRequest;
+
+public interface Elevator {
+
+	void run();
+	
+	void processUpRequests();
+	
+	void processDownRequests();
+	
+	void addRequests();
+	
+	void sendUpRequest(InternalRequest request);
+	
+	void sendDownRequest(InternalRequest request);
+	
+}

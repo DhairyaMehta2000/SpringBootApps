@@ -1,0 +1,16 @@
+package main;
+
+import elevator.Elevator;
+import elevator.ElevatorControlSystem;
+import elevator.ElevatorService;
+
+public class Main {
+
+	public static void main(String args[]) {
+		Elevator e = new ElevatorService(0);
+		ElevatorControlSystem controller = new ElevatorControlSystem(e);
+		controller.addRequests();
+		controller.run();
+	}
+}
+ 

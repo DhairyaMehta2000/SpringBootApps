@@ -1,0 +1,14 @@
+package services;
+
+import interfaces.Database;
+
+public class DatabaseService {
+
+	private String name;
+	private Map<String,TableService> tables;
+	private static DatabaseService instance;
+	public static Database getInstance(String string) {
+		return null;
+	}
+
+}

@@ -1,0 +1,17 @@
+package state;
+
+import entities.ATM;
+import entities.User;
+
+public interface ATMState {
+
+	void insertCard(ATM atm, User user) throws Exception;
+	
+	void enterPin(ATM atm, User user, int pin) throws Exception;
+
+	void validateCard(ATM atm, User user) throws Exception;
+
+	void selectOperation(ATM atm, User user) throws Exception;
+
+	void ejectCard(ATM atm, User user) throws Exception;
+}

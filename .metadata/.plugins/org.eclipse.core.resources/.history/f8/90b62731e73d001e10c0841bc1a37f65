@@ -1,0 +1,97 @@
+	package elevator;
+	
+	import java.util.PriorityQueue;
+	
+	import enums.Direction;
+	import enums.Location;
+	import request.ExternalRequest;
+	import request.InternalRequest;
+	import request.Request;
+	
+	public class ElevatorService implements Elevator {
+	
+		private int currentFloor;
+		private PriorityQueue<InternalRequest> upQueue;
+		private PriorityQueue<InternalRequest> downQueue;
+	
+		public ElevatorService(int currentFloor) {
+			this.currentFloor = currentFloor;
+			upQueue = new PriorityQueue<>((a, b) -> a.destinationFloor - b.destinationFloor);
+			downQueue = new PriorityQueue<>((a, b) -> b.destinationFloor - a.destinationFloor);
+	
+		}
+	
+		@Override
+		public void run() {
+			while (!upQueue.isEmpty() || !downQueue.isEmpty()) {
+	//			System.out.println(upQueue.size());
+				processUpRequests();
+				processDownRequests();
+			}
+	
+		}
+	
+		@Override
+		public void processUpRequests() {
+			while (!upQueue.isEmpty()) {
+	
+				InternalRequest currentRequest = upQueue.poll();
+				System.out.println(
+						"Served a up request from " + this.currentFloor + " to " + currentRequest.destinationFloor);
+				this.currentFloor = currentRequest.destinationFloor;
+			}
+	
+		}
+	
+		@Override
+		public void processDownRequests() {
+			while (!downQueue.isEmpty()) {
+				InternalRequest currentRequest = downQueue.poll();
+				System.out.println(
+						"Served a down request from " + this.currentFloor + " to " + currentRequest.destinationFloor);
+				this.currentFloor = currentRequest.destinationFloor;
+			}
+	
+		}
+	
+		@Override
+		public void addRequests() {
+			ExternalRequest request1 = new ExternalRequest(Direction.UP, Location.OUTSIDE, 1);
+			ExternalRequest request2 = new ExternalRequest(Direction.UP, Location.OUTSIDE, 4);
+			InternalRequest request3 = new InternalRequest(Direction.UP, Location.INSIDE, 1, 3);
+			InternalRequest request4 = new InternalRequest(Direction.UP, Location.INSIDE, 4, 6);
+	
+			ExternalRequest request5 = new ExternalRequest(Direction.DOWN, Location.OUTSIDE, 5);
+			ExternalRequest request6 = new ExternalRequest(Direction.DOWN, Location.OUTSIDE, 2);
+			InternalRequest request7 = new InternalRequest(Direction.DOWN, Location.INSIDE, 5, 0);
+			InternalRequest request8 = new InternalRequest(Direction.DOWN, Location.INSIDE, 2, 1);
+	
+			sendUpRequest(request1);
+			sendUpRequest(request2);
+			sendUpRequest(request3);
+			sendUpRequest(request4);
+	
+			sendDownRequest(request5);
+			sendDownRequest(request6);
+			sendDownRequest(request7);
+			sendDownRequest(request8);
+	
+	//		upQueue.forEach(item -> System.out.println(item.getCurrentFloor()));
+	//		downQueue.forEach(item -> System.out.println(item.getCurrentFloor()));
+	
+		}
+	
+		
+		
+
+		public int getCurrentFloor() {
+			return currentFloor;
+		}
+
+		public void setCurrentFloor(int currentFloor) {
+			this.currentFloor = currentFloor;
+		}
+	
+		
+	
+	}

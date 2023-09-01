@@ -1,0 +1,17 @@
+package services;
+
+import java.util.List;
+
+import interfaces.Ladder;
+
+public class LadderService implements Ladder{
+
+	private List<Integer> ladders;
+	private Player player;
+	@Override
+	public void promote() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,35 @@
+package services;
+
+public class GameService implements GameLogic{
+
+	@Override
+	public void initGame(Board board, Player player1, Player player2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void isThereWinner(Move move, Player currentPlayer, int row, int col) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void isThereDraw() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void makeMove(Move move, Player player, int row, int col) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void isValidMove(int row, int col) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

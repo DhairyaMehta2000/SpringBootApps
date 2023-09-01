@@ -1,0 +1,42 @@
+package entities;
+
+import state.ATMState;
+
+public class ATM {
+
+	private int id;
+	private User user;
+	private ATMState currentState;
+	private int balance;
+
+	public ATMState getCurrentState() {
+		return currentState;
+	}
+
+	public void setCurrentState(ATMState currentState) {
+		this.currentState = currentState;
+	}
+
+	public ATM(int id, User user, int balance) {
+		this.id = id;
+		this.user = user;
+		this.balance=balance;
+		this.currentState = new IdleState();
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+}

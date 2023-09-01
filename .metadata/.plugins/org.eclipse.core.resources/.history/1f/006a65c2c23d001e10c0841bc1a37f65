@@ -1,0 +1,12 @@
+package request;
+
+import enums.Direction;
+import enums.Location;
+
+public class ExternalRequest {
+
+	int currentFloor;
+	Direction direction;
+	Location location;
+	
+}

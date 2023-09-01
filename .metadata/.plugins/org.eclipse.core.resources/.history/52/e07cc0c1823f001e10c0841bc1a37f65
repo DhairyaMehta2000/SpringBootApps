@@ -1,0 +1,14 @@
+package main;
+
+public class Main {
+	public static void main(String args[]) {
+		
+		Database employees = DatabaseService.getInstance("Employees");
+		
+		employees.createTable("Employee");
+		
+		employee.insertRow(1,"Dhairya");
+		
+	}
+
+}

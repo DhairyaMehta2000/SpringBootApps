@@ -1,0 +1,24 @@
+package game;
+
+import java.util.Deque;
+import java.util.LinkedList;
+
+import entities.Board;
+import entities.Move;
+import entities.Player;
+
+public class Game {
+
+	private Board board;
+	private Move move;
+	private Deque<Player> players;
+
+	public Game(Board board, Player player1, Player player2) {
+		super();
+		this.board = board;
+		this.players = new LinkedList<>();
+		players.add(player1);
+		players.add(player2);
+	}
+	
+}

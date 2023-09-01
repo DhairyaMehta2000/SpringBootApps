@@ -1,0 +1,11 @@
+package services;
+
+import interfaces.Table;
+
+public class TableService implements Table{
+
+	public TableService(String name) {
+		// TODO Auto-generated constructor stub
+	}
+
+}

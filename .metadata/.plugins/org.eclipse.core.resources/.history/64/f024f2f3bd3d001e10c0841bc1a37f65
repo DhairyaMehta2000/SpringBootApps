@@ -1,0 +1,25 @@
+package service;
+
+import enums.Direction;
+import enums.Location;
+
+public class Request {
+	    int currentPos;
+	    int destination;
+	    Direction direction;
+	    Location location;
+
+	    public Request(int currentPos, int destination, Direction direction, Location location) {
+	        this.currentPos = currentPos;
+	        this.destination = destination;
+	        this.direction = direction;
+	        this.location = location;
+	    }
+
+	    public Request(int currPos, Direction direction, Location location) {
+	        this.currentPos = currPos;
+	        this.direction = direction;
+	        this.location = location;
+	    }
+	}
+

@@ -1,0 +1,62 @@
+package entities;
+
+public class Card {
+
+	private int cardNumber;
+	private String holderName;
+	private String expiryDate;
+	private int accountBalance;
+	private int pin;
+	
+
+	public Card(int cardNumber, String holderName, String expiryDate, int accountBalance, int pin) {
+		super();
+		this.cardNumber = cardNumber;
+		this.holderName = holderName;
+		this.expiryDate = expiryDate;
+		this.accountBalance = accountBalance;
+		this.pin=pin;
+		
+	}
+
+	public int getPin() {
+		return pin;
+	}
+
+	public void setPin(int pin) {
+		this.pin = pin;
+	}
+
+	public int getCardNumber() {
+		return cardNumber;
+	}
+
+	public void setCardNumber(int cardNumber) {
+		this.cardNumber = cardNumber;
+	}
+
+	public String getHolderName() {
+		return holderName;
+	}
+
+	public void setHolderName(String holderName) {
+		this.holderName = holderName;
+	}
+
+	public String getExpiryDate() {
+		return expiryDate;
+	}
+
+	public void setExpiryDate(String expiryDate) {
+		this.expiryDate = expiryDate;
+	}
+
+	public int getAccountBalance() {
+		return accountBalance;
+	}
+
+	public void setAccountBalance(int accountBalance) {
+		this.accountBalance = accountBalance;
+	}
+
+}

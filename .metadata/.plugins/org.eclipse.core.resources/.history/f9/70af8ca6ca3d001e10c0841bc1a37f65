@@ -1,0 +1,9 @@
+package elevator;
+
+public class ElevatorControlSystem {
+	private Elevator elevator;
+	
+	public ElevatorControlSystem(ElevatorService elevator) {
+		this.elevator = elevator;
+	}
+}

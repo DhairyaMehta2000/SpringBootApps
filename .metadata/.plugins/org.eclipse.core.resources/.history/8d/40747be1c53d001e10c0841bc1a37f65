@@ -1,0 +1,20 @@
+package request;
+
+import enums.Direction;
+import enums.Location;
+
+public class InternalRequest implements Request {
+
+	public int currentFloor;
+	public int destinationFloor;
+	Direction direction;
+	Location location;
+
+	public InternalRequest(Direction direction, Location location, int... arguments) {
+		this.currentFloor = arguments[0];
+		this.destinationFloor = arguments[1];
+		this.direction = direction;
+		this.location = location;
+	}
+
+}

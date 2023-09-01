@@ -1,0 +1,41 @@
+package elevator;
+
+import java.util.PriorityQueue;
+
+import enums.Direction;
+import enums.Location;
+import service.Request;
+
+public class Elevator implements ElevatorService {
+    private int currentFloor;
+    private Direction direction;
+    private PriorityQueue<Request> upQueue;
+    private PriorityQueue<Request> downQueue;
+	@Override
+	public void addUpRequest(Request request) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void addDownRequest(Request request) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void processUpRequests() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void processDownRequests() {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void processRequests() {
+		// TODO Auto-generated method stub
+		
+	}
+
+    
+}

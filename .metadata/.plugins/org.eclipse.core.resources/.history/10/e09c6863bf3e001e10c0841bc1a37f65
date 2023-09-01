@@ -1,0 +1,96 @@
+package p1;
+
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+public class Game {
+	Board board;
+	Dice dice = new Dice();
+	Player player;
+	Deque<Player> players = new LinkedList<>();
+	Ladder ladders;
+	Snake snakes;
+
+	public void init() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Player 1 Name : ");
+		String name1 = sc.nextLine();
+		System.out.println("Enter Player 2 Name : ");
+		String name2 = sc.nextLine();
+		Player player1 = new Player(name1, 1);
+		Player player2 = new Player(name2, 2);
+		players.add(player1);
+		players.add(player2);
+		board = new Board(100);
+		snakes = new Snake();
+		ladders = new Ladder();
+	}
+
+	public boolean isValidMove(Move move, Player current_player, int end_pos) {
+		if (end_pos >= 0 && end_pos < 101) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean isThereWinner(Move move, Player current_player, int end_pos) {
+		if (current_player.getCurrPos() == 100) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public boolean makeMove(Move move, Player current_player, int end_pos) {
+		if (isValidMove(move, current_player, end_pos)) {
+			current_player.setCurrPos(end_pos);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public void play() {
+
+		while (true) {
+			Player current_player = players.poll();
+			int dice_result = dice.rollDice();
+			int curr_pos = current_player.getCurrPos();
+
+			int end_pos = curr_pos + dice_result;
+			
+			Move move = new Move(current_player, curr_pos, end_pos);
+			if (makeMove(move, current_player, end_pos)) {
+				boolean got_ladder = false;
+				ladders.ladders.forEach(ladder -> {
+					if (ladder == end_pos) {
+						System.out.println("Player " + current_player.getName() + " got ladder at " + ladder);
+						 got_ladder = true;
+					}
+				});
+
+				if (!got_ladder) {
+					snakes.snakes.forEach(snake -> {
+						if (snake == end_pos) {
+							System.out.println("Player " + current_player.getName() + " got snake at " + snake);
+							snakes.demote(current_player, end_pos);
+						}
+					});
+				}
+				if (isThereWinner(move, current_player, end_pos)) {
+					System.out.println("Player " + current_player.getName() + " has won");
+					break;
+				}
+			} else {
+				System.out.println("Invalid move, please try again ");
+				players.offer(current_player);
+			}
+			System.out.println(
+					"Current position of player - " + current_player.getName() + "-" + current_player.getCurrPos());
+			players.offer(current_player);
+		}
+
+	}
+}

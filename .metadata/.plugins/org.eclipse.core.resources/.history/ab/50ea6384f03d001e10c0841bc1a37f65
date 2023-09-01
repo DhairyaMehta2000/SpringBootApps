@@ -1,0 +1,13 @@
+package entities;
+
+public class User {
+
+	private String name;
+	private String card;
+	
+	public User(String name,Card card) {
+		this.name=name;
+		this.card=card;
+		
+	}
+}

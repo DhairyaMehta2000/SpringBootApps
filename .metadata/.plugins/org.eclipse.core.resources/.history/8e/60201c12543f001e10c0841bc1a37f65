@@ -1,0 +1,11 @@
+package services;
+
+import interfaces.Vehicle;
+
+public class SlotService {
+
+	private Vehicle vehicle;
+	private boolean isBooked;
+	
+	
+}

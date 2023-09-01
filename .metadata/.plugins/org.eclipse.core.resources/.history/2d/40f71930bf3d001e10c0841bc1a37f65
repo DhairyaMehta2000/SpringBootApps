@@ -1,0 +1,38 @@
+package elevator;
+
+import java.util.PriorityQueue;
+
+import enums.Direction;
+import enums.Location;
+import service.Request;
+
+public class Elevator implements ElevatorService {
+    private int currentFloor;
+    private Direction direction;
+    private PriorityQueue<Request> requestQueue;
+
+    public Elevator(int currentFloor) {
+        this.direction = Direction.IDLE;
+        this.currentFloor = currentFloor;
+        requestQueue = new PriorityQueue<>((a, b) -> a.destination - b.destination);
+    }
+
+    @Override
+    public void addRequest(Request request) {
+        if (request.location == Location.OUTSIDE && request.currentPos != this.currentFloor) {
+            requestQueue.offer(new Request(this.currentFloor, request.currentPos, Direction.UP, Location.OUTSIDE));
+        } else if (request.location == Location.INSIDE) {
+            requestQueue.offer(request);
+        }
+    }
+
+    @Override
+    public void processRequests() {
+        while (!requestQueue.isEmpty()) {
+            Request currentRequest = requestQueue.poll();
+            System.out.println("Processed request from " + this.currentFloor + " to " +
+                               currentRequest.destination + " (" + currentRequest.direction + ")");
+            this.currentFloor = currentRequest.destination;
+        }
+    }
+}

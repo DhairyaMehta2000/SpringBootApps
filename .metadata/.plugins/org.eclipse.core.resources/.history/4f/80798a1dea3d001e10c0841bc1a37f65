@@ -1,0 +1,27 @@
+package main;
+
+import entities.ATM;
+import entities.User;
+
+public class Main {
+
+	public static void main(String[] args) {
+		User user = new User("Dhairya");
+		ATM atm = new ATM(1,user);
+		
+		try {
+			atm.insertCard(atm.getUser());
+			atm.enterPin(1234);
+			atm.selectOperation(atm.getUser(), "DISPLAY_BALANCE");
+			atm.selectOperation(atm.getUser(), "CASH_WITHDRAWAL", 2000);
+			atm.selectOperation(atm.getUser(),"CASH_WITHDRAWAL",1100);
+			System.out.println(atm.getCurrentState());
+			atm.ejectCard();
+			System.out.println(atm.getCurrentState());
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+}

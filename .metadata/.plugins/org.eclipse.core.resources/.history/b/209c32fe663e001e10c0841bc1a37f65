@@ -1,0 +1,39 @@
+package main;
+
+import entities.ATM;
+import entities.Card;
+import entities.User;
+import state.ATMState;
+import state.IdleState;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Card card = new Card(112233,"Dhairya Mehta","12-12-2024",3000,1234);
+		User user = new User("Dhairya",card);
+		ATMState idleState = new IdleState();
+		ATM atm = new ATM(1,user,5000);
+		try {
+			atm.insertCard(user);
+			atm.enterPin(user, 1234);
+			atm.selectOperation(atm, user, "DISPLAY_BALANCE", 0);
+			atm.ejectCard(atm, user);
+			atm.insertCard(user);
+			atm.enterPin(user, 1234);
+			atm.selectOperation(atm, user, "WITHDRAWAL", 1000);
+			
+			atm.ejectCard(atm, user);
+			atm.insertCard(user);
+			atm.enterPin(user, 1234);
+			atm.selectOperation(atm, user, "DISPLAY_BALANCE", 0);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+
+	}
+
+}

@@ -1,0 +1,22 @@
+package main;
+
+import interfaces.Slot;
+import services.SlotService;
+
+public class Main {
+
+	public static void main(String[] args) {
+	
+		Slot slot1 = new SlotService("Truck", 1);
+		Slot slot2 = new SlotService("Bike", 2);
+		Slot slot3 = new SlotService("Bike", 3);
+		Slot slot4 = new SlotService("Car", 4);
+		Slot slot5 = new SlotService("Car", 5);
+		Slot slot6 = new SlotService("Car", 6);
+		
+		
+		
+
+	}
+
+}

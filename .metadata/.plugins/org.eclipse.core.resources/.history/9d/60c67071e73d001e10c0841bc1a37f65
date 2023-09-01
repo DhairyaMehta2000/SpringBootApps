@@ -1,0 +1,101 @@
+package elevator;
+
+import request.ExternalRequest;
+import request.InternalRequest;
+import request.Request;
+import java.util.*;
+
+import enums.Direction;
+import enums.Location;
+public class ElevatorControlSystem {
+	private Elevator elevator;
+	private PriorityQueue<Request>upQueue;
+	private PriorityQueue<Request> downQueue;
+	
+	
+	public ElevatorControlSystem(Elevator elevator) {
+		this.elevator = elevator;
+		this.upQueue = new PriorityQueue<>((a,b)->a.getDestinationFloor()-b.getDestinationFloor());
+		this.downQueue = new PriorityQueue<>((a,b)->b.getDestinationFloor()-a.getDestinationFloor());
+	}
+	
+//	@Override
+	public void sendDownRequest(Request request) {
+		if (request.getLocation() == Location.OUTSIDE && elevator.getCurrentFloor() != request.getCurrentFloor()) {
+			downQueue.offer(
+					new InternalRequest(Direction.UP, Location.OUTSIDE, elevator.getCurrentFloor(), request.getCurrentFloor()));
+
+		} else if (request.getLocation() == Location.INSIDE) {
+			downQueue.offer(new InternalRequest(request.getDirection(), request.getLocation(), request.getCurrentFloor(),
+					request.getDestinationFloor()));
+		}
+	}
+	
+	public void sendUpRequest(Request request) {
+		if (request.getLocation() == Location.OUTSIDE && elevator.getCurrentFloor() != request.getCurrentFloor()) {
+			upQueue.offer(
+					new InternalRequest(Direction.UP, Location.OUTSIDE, elevator.getCurrentFloor(), request.getCurrentFloor()));
+
+		} else if (request.getLocation() == Location.INSIDE) {
+			upQueue.offer(new InternalRequest(request.getDirection(), request.getLocation(), request.getCurrentFloor(),
+					request.getDestinationFloor()));
+		}
+
+	}
+	
+	public void addRequests() {
+		ExternalRequest request1 = new ExternalRequest(Direction.UP, Location.OUTSIDE, 1);
+		ExternalRequest request2 = new ExternalRequest(Direction.UP, Location.OUTSIDE, 4);
+		InternalRequest request3 = new InternalRequest(Direction.UP, Location.INSIDE, 1, 3);
+		InternalRequest request4 = new InternalRequest(Direction.UP, Location.INSIDE, 4, 6);
+
+		ExternalRequest request5 = new ExternalRequest(Direction.DOWN, Location.OUTSIDE, 5);
+		ExternalRequest request6 = new ExternalRequest(Direction.DOWN, Location.OUTSIDE, 2);
+		InternalRequest request7 = new InternalRequest(Direction.DOWN, Location.INSIDE, 5, 0);
+		InternalRequest request8 = new InternalRequest(Direction.DOWN, Location.INSIDE, 2, 1);
+
+		sendUpRequest(request1);
+		sendUpRequest(request2);
+		sendUpRequest(request3);
+		sendUpRequest(request4);
+
+		sendDownRequest(request5);
+		sendDownRequest(request6);
+		sendDownRequest(request7);
+		sendDownRequest(request8);
+
+//		upQueue.forEach(item -> System.out.println(item.getCurrentFloor()));
+//		downQueue.forEach(item -> System.out.println(item.getCurrentFloor()));
+
+	}
+	
+	public Elevator getElevator() {
+		return elevator;
+	}
+
+	public void setElevator(Elevator elevator) {
+		this.elevator = elevator;
+	}
+
+	public PriorityQueue<Request> getUpQueue() {
+		return upQueue;
+	}
+
+	public void setUpQueue(PriorityQueue<Request> upQueue) {
+		this.upQueue = upQueue;
+	}
+
+	public PriorityQueue<Request> getDownQueue() {
+		return downQueue;
+	}
+
+	public void setDownQueue(PriorityQueue<Request> downQueue) {
+		this.downQueue = downQueue;
+	}
+
+	
+	
+	public void run() {
+		elevator.run();
+	}
+}

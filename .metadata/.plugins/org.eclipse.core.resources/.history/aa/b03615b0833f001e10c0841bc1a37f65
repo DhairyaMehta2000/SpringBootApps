@@ -1,0 +1,11 @@
+package services;
+
+import interfaces.Row;
+
+public class RowService implements Row{
+
+	private Integer id;
+	private String name;
+	
+	
+}
